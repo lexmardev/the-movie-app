@@ -9,11 +9,11 @@ export const MainLayoutRoutes: Routes = [
   {
     path: 'movies',
     loadComponent: () =>
-      import('../../modules/movie/presentation/movie.component').then(
+      import('@modules/movie/presentation/movie.component').then(
         (m) => m.MovieComponent
       ),
     loadChildren: () =>
-      import('../../modules/movie/presentation/movie.routes').then(
+      import('@modules/movie/presentation/movie.routes').then(
         (m) => m.MovieRoutes
       ),
   },
