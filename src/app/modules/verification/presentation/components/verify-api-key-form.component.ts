@@ -32,8 +32,9 @@ import { MovieControllerService } from '@modules/movie/infrastructure/movie.cont
 								/>
 								<span
 									[ngClass]="{
-                  '!visible animate-shake': form.controls['apiKey'].hasError('required') && form.controls['apiKey'].touched,
-                }"
+										'!visible animate-shake':
+											form.controls['apiKey'].hasError('required') && form.controls['apiKey'].touched
+									}"
 									class="invisible mt-2 text-red-500"
 									>The API Key is required</span
 								>
@@ -81,8 +82,8 @@ export class VerifyApiKeyFormComponent {
 		localStorage.setItem('api-key', apiKey)
 
 		this.movieController.getByPage(1).subscribe({
-			next: (movies) => {
-				this.movieService.setMovies(movies)
+			next: (response: any) => {
+				this.movieService.setMovies(response.results)
 				this.notificationService.showNotification({
 					type: 'success',
 					title: 'Yay!',
