@@ -5,6 +5,9 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  template: `<router-outlet />`,
+  template: `
+    <h1 class="text-3xl font-bold underline">Hello tailwind!</h1>
+    <router-outlet />
+  `,
 })
 export class AppComponent {}
