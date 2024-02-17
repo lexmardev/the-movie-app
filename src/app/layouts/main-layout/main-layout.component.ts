@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header.component'
 	template: `
 		<div class="flex flex-col">
 			<app-header />
-			<div class="container flex">
+			<div class="mt-4 flex flex-col">
 				<router-outlet />
 			</div>
 		</div>
