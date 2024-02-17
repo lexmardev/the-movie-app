@@ -1,28 +1,28 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { inject } from '@angular/core'
+import { CanActivateFn, Router } from '@angular/router'
 
 export const MainLayoutGuard: CanActivateFn = (route, state) => {
-  const router = inject(Router);
+	const router = inject(Router)
 
-  const apiKey = localStorage.getItem('apiKey');
+	const apiKey = localStorage.getItem('api-key')
 
-  if (apiKey) {
-    return true;
-  }
+	if (apiKey) {
+		return true
+	}
 
-  router.navigate(['/api-key']);
-  return false;
-};
+	router.navigate(['/verify/api-key'])
+	return false
+}
 
 export const APIKeyPageGuard: CanActivateFn = (route, state) => {
-  const router = inject(Router);
+	const router = inject(Router)
 
-  const apiKey = localStorage.getItem('apiKey');
+	const apiKey = localStorage.getItem('api-key')
 
-  if (apiKey) {
-    router.navigate(['/api-key']);
-    return false;
-  }
+	if (apiKey) {
+		router.navigate(['/movies'])
+		return false
+	}
 
-  return true;
-};
+	return true
+}
