@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core'
+import { RouterOutlet } from '@angular/router'
+import { NotificationComponent } from '@components/notification/notification.component'
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  template: `
-    <h1 class="text-3xl font-bold underline">Hello tailwind!</h1>
-    <router-outlet />
-  `,
+	selector: 'app-root',
+	standalone: true,
+	imports: [RouterOutlet, NotificationComponent],
+	template: `
+		<router-outlet />
+		<app-notification />
+	`,
 })
 export class AppComponent {}
