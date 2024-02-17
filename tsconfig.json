@@ -21,6 +21,7 @@
     "useDefineForClassFields": false,
     "baseUrl": "./",
     "paths": {
+      "@components/*": ["src/app/components/*"],
       "@environments/*": ["src/environments/*"],
       "@lib/*": ["src/app/lib/*"],
       "@modules/*": ["src/app/modules/*"]
