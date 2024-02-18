@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { MovieCardComponent } from '../components/movie-card.component'
 import { IMovie } from '@modules/movie/domain/movie.interface'
-import { MovieControllerService } from '@modules/movie/infrastructure/movie.controller.service'
 import { MovieService } from '@lib/services/movie.service'
 
 @Component({

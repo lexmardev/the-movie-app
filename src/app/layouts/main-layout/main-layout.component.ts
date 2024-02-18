@@ -28,7 +28,7 @@ export class MainLayoutComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.movieController.getByPage(1).subscribe((response: any) => {
+		this.movieController.getByPage(1).subscribe((response) => {
 			this.movieService.movies = response.results
 			this.canLoadContent = true
 		})

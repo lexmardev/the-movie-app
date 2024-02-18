@@ -88,7 +88,7 @@ export class VerifyApiKeyFormComponent {
 				})
 				this.router.navigate(['/movies'])
 			},
-			error: (error) => {
+			error: () => {
 				localStorage.removeItem('api-key')
 				this.notificationService.showNotification({
 					type: 'error',

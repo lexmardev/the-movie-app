@@ -1,7 +1,7 @@
 import { inject } from '@angular/core'
 import { CanActivateFn, Router } from '@angular/router'
 
-export const MainLayoutGuard: CanActivateFn = (route, state) => {
+export const MainLayoutGuard: CanActivateFn = () => {
 	const router = inject(Router)
 
 	const apiKey = localStorage.getItem('api-key')
@@ -14,7 +14,7 @@ export const MainLayoutGuard: CanActivateFn = (route, state) => {
 	return false
 }
 
-export const APIKeyPageGuard: CanActivateFn = (route, state) => {
+export const APIKeyPageGuard: CanActivateFn = () => {
 	const router = inject(Router)
 
 	const apiKey = localStorage.getItem('api-key')
