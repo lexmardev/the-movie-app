@@ -3,7 +3,6 @@ import { Component } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { SubmitButtonComponent } from '@components/buttons/submit-button.component'
-import { MovieService } from '@lib/services/movie.service'
 import { NotificationService } from '@lib/services/notification.service'
 import { MovieControllerService } from '@modules/movie/infrastructure/movie.controller.service'
 
@@ -60,7 +59,6 @@ export class VerifyApiKeyFormComponent {
 
 	constructor(
 		private readonly movieController: MovieControllerService,
-		private readonly movieService: MovieService,
 		private readonly notificationService: NotificationService,
 		private readonly router: Router
 	) {
@@ -82,8 +80,7 @@ export class VerifyApiKeyFormComponent {
 		localStorage.setItem('api-key', apiKey)
 
 		this.movieController.getByPage(1).subscribe({
-			next: (response: any) => {
-				this.movieService.setMovies(response.results)
+			next: () => {
 				this.notificationService.showNotification({
 					type: 'success',
 					title: 'Yay!',
