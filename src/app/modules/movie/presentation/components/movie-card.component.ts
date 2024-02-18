@@ -1,6 +1,8 @@
 import { NgClass } from '@angular/common'
 import { Component, Input, OnInit } from '@angular/core'
+import { MovieService } from '@lib/services/movie.service'
 import { IMovie } from '@modules/movie/domain/movie.interface'
+import { MovieControllerService } from '@modules/movie/infrastructure/movie.controller.service'
 
 @Component({
 	selector: 'app-movie-card',
@@ -20,7 +22,10 @@ import { IMovie } from '@modules/movie/domain/movie.interface'
 				<div class="flex h-full w-full flex-col justify-end">
 					<div class="flex h-1/2 w-full flex-col justify-end bg-gradient-to-t from-black to-transparent">
 						<h1 class="w-full pb-4 text-center text-2xl font-bold text-white">{{ movie.titleText?.text }}</h1>
-						<div class="flex flex-row justify-end">
+						<div class="flex flex-row justify-between">
+							<button (click)="deleteMovie()" class="cursor-pointer pb-4 pl-4">
+								<i class="i-tabler-trash h-8 w-8 text-gray-400 hover:scale-110"></i>
+							</button>
 							<button (click)="toggleFavorite()" class="cursor-pointer pb-4 pr-4">
 								<i
 									class="i-tabler-heart h-8 w-8 text-gray-400"
@@ -39,6 +44,8 @@ import { IMovie } from '@modules/movie/domain/movie.interface'
 export class MovieCardComponent implements OnInit {
 	@Input() movie!: IMovie
 
+	constructor(private readonly movieController: MovieControllerService) {}
+
 	ngOnInit(): void {
 		if (!this.movie) {
 			throw new Error('Movie is required')
@@ -47,5 +54,9 @@ export class MovieCardComponent implements OnInit {
 
 	toggleFavorite(): void {
 		this.movie.isFavorite = !this.movie.isFavorite
+	}
+
+	deleteMovie(): void {
+		this.movieController.delete(this.movie)
 	}
 }
