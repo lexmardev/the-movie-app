@@ -39,16 +39,16 @@ import { NotificationService } from '@lib/services/notification.service'
 					>
 				</div>
 				<div class="hidden lg:flex lg:flex-1 lg:justify-end">
-					<a (click)="onExit()" class="w-40 cursor-pointer truncate text-sm font-semibold leading-6 text-gray-900"
-						>Exit <span aria-hidden="true">&rarr;</span></a
-					>
+					<button (click)="onExit()" class="w-40 cursor-pointer truncate text-sm font-semibold leading-6 text-gray-900">
+						Exit <span aria-hidden="true">&rarr;</span>
+					</button>
 				</div>
 			</nav>
 			@if (canShowMobileMenu) {
 				<!-- Mobile menu, show/hide based on menu open state. -->
 				<div class="lg:hidden" role="dialog" aria-modal="true">
 					<!-- Background backdrop, show/hide based on slide-over state. -->
-					<div (click)="toggleMobileMenu()" class="fixed inset-0 z-10"></div>
+					<div (click)="toggleMobileMenu()" (keypress)="toggleMobileMenu()" class="fixed inset-0 z-10"></div>
 					<div
 						class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 					>
@@ -79,11 +79,12 @@ import { NotificationService } from '@lib/services/notification.service'
 									>
 								</div>
 								<div class="py-6">
-									<a
+									<button
 										(click)="onExit()"
 										class="-mx-3 block cursor-pointer rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-										>Exit</a
 									>
+										Exit
+									</button>
 								</div>
 							</div>
 						</div>
