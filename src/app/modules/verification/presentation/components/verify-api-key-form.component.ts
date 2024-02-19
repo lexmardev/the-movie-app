@@ -43,7 +43,7 @@ import { MovieControllerService } from '@modules/movie/infrastructure/movie.cont
 							<app-submit-button
 								title="Verify"
 								titleDuringLoading="Verifying"
-								[isLoading]="false"
+								[isLoading]="isLoading"
 								(buttonClick)="onSubmit()"
 							/>
 						</div>
@@ -56,6 +56,7 @@ import { MovieControllerService } from '@modules/movie/infrastructure/movie.cont
 })
 export class VerifyApiKeyFormComponent {
 	form: FormGroup
+	isLoading = false
 
 	constructor(
 		private readonly movieController: MovieControllerService,
@@ -76,6 +77,7 @@ export class VerifyApiKeyFormComponent {
 	}
 
 	verifyApiKey(): void {
+		this.isLoading = true
 		const apiKey: string = this.form.controls['apiKey'].value
 		localStorage.setItem('api-key', apiKey)
 
@@ -87,8 +89,10 @@ export class VerifyApiKeyFormComponent {
 					message: 'You have the right API Key!',
 				})
 				this.router.navigate(['/movies'])
+				this.isLoading = false
 			},
 			error: () => {
+				this.isLoading = false
 				localStorage.removeItem('api-key')
 				this.notificationService.showNotification({
 					type: 'error',

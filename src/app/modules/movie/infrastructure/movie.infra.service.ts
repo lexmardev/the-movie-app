@@ -30,7 +30,7 @@ export class MovieInfrastructureService implements IMovieRepository {
 		return this.movieService.delete(movie)
 	}
 
-	getById(id: string): IMovie {
+	getById(id: string): IMovie | null {
 		return this.movieService.getById(id)
 	}
 

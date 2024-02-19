@@ -22,7 +22,7 @@ export class MovieControllerService {
 		return this.application.delete(movie)
 	}
 
-	getById(id: string): IMovie {
+	getById(id: string): IMovie | null {
 		return this.application.getById(id)
 	}
 

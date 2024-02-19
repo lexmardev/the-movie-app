@@ -26,7 +26,7 @@ export class MovieApplicationService {
 		return this.repository.delete(movie)
 	}
 
-	getById(id: string): IMovie {
+	getById(id: string): IMovie | null {
 		return this.repository.getById(id)
 	}
 
