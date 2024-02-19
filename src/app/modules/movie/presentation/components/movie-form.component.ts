@@ -132,6 +132,12 @@ export class MovieFormComponent implements OnInit {
 	}
 
 	setFormData() {
+		if (this.movie) {
+			this.movie.titleText = { text: this.form.value.title }
+			this.movie.primaryImage = { url: this.form.value.imageUrl }
+			return
+		}
+
 		this.movie = {
 			titleText: {
 				text: this.form.controls['title'].value,
