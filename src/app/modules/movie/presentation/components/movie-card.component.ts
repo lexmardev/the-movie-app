@@ -2,7 +2,6 @@ import { NgClass } from '@angular/common'
 import { Component, Input, OnInit } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { MovieImagePipe } from '@lib/pipes/movie-image.pipe'
-import { MovieService } from '@lib/services/movie.service'
 import { IMovie } from '@modules/movie/domain/movie.interface'
 import { MovieControllerService } from '@modules/movie/infrastructure/movie.controller.service'
 
