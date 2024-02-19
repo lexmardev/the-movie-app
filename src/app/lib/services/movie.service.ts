@@ -14,6 +14,7 @@ export class MovieService {
 	}
 
 	save(movie: IMovie): IMovie {
+		movie.id = Date.now().toString()
 		this.movies.push(movie)
 		return movie
 	}
@@ -30,7 +31,7 @@ export class MovieService {
 		return movie
 	}
 
-	getById(id: string): IMovie {
-		return this.movies.find((m) => m.id === id) ?? ({} as IMovie)
+	getById(id: string): IMovie | null {
+		return this.movies.find((m) => m.id === id) ?? null
 	}
 }
